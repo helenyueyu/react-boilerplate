@@ -4,7 +4,10 @@
   "description": "React boilerplate",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run build-server && npm run build-client",
+    "build-server": "babel src/server --out-dir ./dist",
+    "build-client": "babel src/client --copy-files --out-dir ./dist/public",
+    "start": "node ./dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +22,12 @@
   "bugs": {
     "url": "https://github.com/tokyosuite/react-boilerplate/issues"
   },
-  "homepage": "https://github.com/tokyosuite/react-boilerplate#readme"
+  "homepage": "https://github.com/tokyosuite/react-boilerplate#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
 }
